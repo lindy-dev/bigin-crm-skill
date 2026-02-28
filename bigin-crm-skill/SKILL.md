@@ -1,61 +1,9 @@
-# ClawBigin — Bigin CRM Skill for OpenClaw
-
-**Project Challenge:** Build a comprehensive Bigin CRM skill for OpenClaw — the lightweight, pipeline-focused CRM for small businesses.
-
----
-
-## 🎯 Why Bigin First?
-
-**Bigin is the perfect MVP target** for your first CRM skill:
-
-| Advantage | Explanation |
-|-----------|-------------|
-| **Simpler** | Fewer modules to implement (no complex Lead→Account→Contact→Opportunity flow) |
-| **Faster to MVP** | Core features: Pipelines, Contacts, Companies, Tasks |
-| **Clearer workflow** | Everything revolves around pipelines — intuitive for sales teams |
-| **Same API patterns** | Everything you learn transfers directly to Zoho CRM later |
-| **Real-world need** | Small businesses use Bigin but lack CLI tooling |
-
-**Once you master Bigin, extending to full Zoho CRM is trivial** — just add more modules.
-
----
-
-## 🔍 Bigin vs Zoho CRM API
-
-### API Endpoint Difference
-| Product | Base URL |
-|---------|----------|
-| **Zoho CRM** | `https://www.zohoapis.com/crm/v2/` |
-| **Bigin** | `https://www.zohoapis.com/bigin/v2/` |
-
-**Simply swap `crm` → `bigin` in the base URL.**
-
-### Module Mapping
-
-| Bigin Module | API Name | Zoho CRM Equivalent | Notes |
-|--------------|----------|---------------------|-------|
-| **Pipelines** | `Pipelines` | `Deals` | Core module — everything flows through here |
-| **Contacts** | `Contacts` | `Contacts` | Same |
-| **Companies** | `Accounts` | `Accounts` | Called "Companies" in UI, "Accounts" in API |
-| **Products** | `Products` | `Products` | Same |
-| **Tasks** | `Tasks` | `Tasks` | Same |
-| **Events** | `Events` | `Events` | Same |
-| **Calls** | `Calls` | `Calls` | Same |
-| **Notes** | `Notes` | `Notes` | Same |
-| **Attachments** | `Attachments` | `Attachments` | Same |
-
-**Key Difference:** Bigin has **no separate "Leads" module** — leads go directly into Pipelines.
-
-### OAuth Scopes
-```python
-# Zoho CRM scopes
-"ZohoCRM.modules.ALL,ZohoCRM.settings.ALL"
-
-# Bigin scopes
-"ZohoBigin.modules.ALL,ZohoBigin.settings.ALL"
-```
-
----
+## 🏗️ About
+A simple skill to connect Bigin CRM to OpenClaw
+### Prerequisites
+- Bigin account (developer sandbox recommended)
+- Python 3.8+
+- `requests` library (`pip install requests`)
 
 ## 🏗️ Architecture
 
@@ -284,56 +232,6 @@ bigin-crm-skill/
 
 ---
 
-## 🎯 Success Criteria
-
-### Functional
-- [ ] OAuth2 authentication with auto-refresh
-- [ ] Full Pipeline CRUD (create, read, update, stage changes)
-- [ ] Contact & Company management
-- [ ] Task/Event/Call activity tracking
-- [ ] Bulk import from CSV
-- [ ] Search with criteria/filters
-- [ ] Pipeline automation (auto-assign, reminders)
-
-### Reporting
-- [ ] Pipeline summary (by stage, by owner)
-- [ ] Sales performance metrics
-- [ ] Weighted forecast
-- [ ] Activity reports
-
-### Integration
-- [ ] Works as OpenClaw skill
-- [ ] CLI commands executable from terminal
-- [ ] Integrates with `zoho-email-integration` skill
-
-### Quality
-- [ ] Comprehensive error handling
-- [ ] Unit tests with >80% coverage
-- [ ] Full documentation
-- [ ] Example workflows provided
-
----
-
-## 💼 Portfolio Value
-
-**Why This Project Stands Out:**
-
-1. **Real integration** — Working with enterprise CRM APIs
-2. **Full stack** — Python backend, CLI interface, AI features
-3. **Business value** — Automates actual sales workflows for small businesses
-4. **Open source contribution** — First Bigin skill for OpenClaw ecosystem
-5. **Foundation for growth** — Easy to extend to full Zoho CRM later
-
-**Skills Demonstrated:**
-- OAuth2 implementation
-- REST API integration (Zoho/Bigin)
-- Enterprise software automation
-- CLI tool development
-- Sales workflow design
-- AI-powered business tools
-
----
-
 ## 📚 Resources
 
 ### Bigin API Documentation
@@ -371,13 +269,4 @@ touch SKILL.md README.md
 mkdir -p scripts config examples tests
 ```
 
-### Step 3: Build Auth Module First
-Start with `scripts/auth.py` — OAuth is the foundation. Once auth works, everything else follows.
-
-### Step 4: Focus on Pipelines
-**Pipelines are the core module** — get this working first, then add Contacts, Companies, Tasks.
-
 ---
-
-*Created: Saturday, February 21st, 2026*  
-*Challenge Level: 🏆 Intermediate (MVP) → Advanced (Full)*
